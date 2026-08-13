@@ -25,7 +25,7 @@ function App() {
 
       <Route path="/games" element={<BrowseGames />} />
 
-      <Route path="/game/:id" element={<GameDetails />} />
+      <Route path="/games/:id" element={<GameDetails />} />
 
       {/* Dashboard */}
       <Route

@@ -78,6 +78,16 @@ const gameSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    // Cached review statistics
+averageRating: {
+  type: Number,
+  default: 0,
+},
+
+reviewCount: {
+  type: Number,
+  default: 0,
+},
 
     // Developer who added the game
     developer: {

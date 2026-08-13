@@ -1,0 +1,158 @@
+.admin-page {
+  min-height: 100vh;
+  padding: 120px 8% 60px;
+  background: var(--background);
+  color: var(--text);
+}
+
+.admin-header {
+  margin-bottom: 40px;
+}
+
+.admin-header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.admin-header p {
+  color: #9ca3af;
+  font-size: 17px;
+}
+
+.admin-section {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 30px;
+}
+
+.admin-section h2 {
+  margin-bottom: 25px;
+  font-size: 25px;
+}
+
+.admin-games {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-game-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  padding: 18px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.admin-game-info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.admin-game-image,
+.admin-game-placeholder {
+  width: 100px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.admin-game-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1f2937;
+  font-size: 25px;
+}
+
+.admin-game-info h3 {
+  margin: 0 0 6px;
+  font-size: 19px;
+}
+
+.admin-game-info p {
+  margin: 0 0 5px;
+  color: #9ca3af;
+}
+
+.admin-game-info span {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.admin-game-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.featured-btn,
+.delete-btn {
+  border: none;
+  padding: 11px 16px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.featured-btn {
+  background: #374151;
+  color: white;
+}
+
+.featured-btn:hover {
+  transform: translateY(-2px);
+}
+
+.featured-btn.active {
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #06b6d4
+  );
+}
+
+.delete-btn {
+  background: #7f1d1d;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+.admin-loading,
+.admin-empty {
+  color: #9ca3af;
+  text-align: center;
+  padding: 30px;
+}
+
+@media (max-width: 768px) {
+  .admin-page {
+    padding: 110px 20px 40px;
+  }
+
+  .admin-game-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-game-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .featured-btn,
+  .delete-btn {
+    width: 100%;
+  }
+}

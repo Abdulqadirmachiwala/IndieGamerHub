@@ -30,10 +30,25 @@ const userSchema = new mongoose.Schema(
     },
 
     profileImage: {
-      type: String,
-      default: "",
-    },
+  type: String,
+  default: "",
+},
+
+bio: {
+  type: String,
+  default: "",
+  maxlength: 500,
+  trim: true,
+},
+
+favoriteGames: [
+  {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Game",
   },
+],
+  },
+  
   {
     timestamps: true,
   }

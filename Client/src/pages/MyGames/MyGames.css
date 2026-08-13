@@ -1,0 +1,49 @@
+.mygames-container {
+  min-height: 100vh;
+  background: #0d1117;
+  color: white;
+  padding: 40px;
+}
+
+.mygames-title {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 38px;
+  color: #00e5ff;
+}
+
+.mygames-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.mygame-card {
+  background: #161b22;
+  border-radius: 12px;
+  padding: 20px;
+  transition: 0.3s;
+  border: 1px solid #30363d;
+}
+
+.mygame-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 229, 255, 0.25);
+}
+
+.mygame-card h2 {
+  color: #00e5ff;
+  margin-bottom: 10px;
+}
+
+.mygame-card p {
+  color: #c9d1d9;
+  margin: 8px 0;
+}
+
+.no-games {
+  text-align: center;
+  color: #888;
+  margin-top: 60px;
+  font-size: 22px;
+}

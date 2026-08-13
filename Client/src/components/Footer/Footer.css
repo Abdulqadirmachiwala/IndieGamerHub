@@ -1,0 +1,39 @@
+.footer{
+
+padding:40px 20px;
+
+text-align:center;
+
+background:#0B1120;
+
+border-top:1px solid rgba(255,255,255,.08);
+
+margin-top:80px;
+
+}
+
+.footer h2{
+
+font-family:"Orbitron",sans-serif;
+
+color:var(--accent);
+
+margin-bottom:15px;
+
+}
+
+.footer p{
+
+color:var(--text);
+
+margin-bottom:15px;
+
+}
+
+.footer span{
+
+font-size:14px;
+
+color:#94A3B8;
+
+}

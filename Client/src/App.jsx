@@ -13,7 +13,7 @@ import EditGame from "./pages/EditGame/EditGame";
 import MyGames from "./pages/MyGames/MyGames";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute/AdminRoute";
-
+import ThreadDetail from "./pages/ThreadDetail/ThreadDetail";
 function App() {
   return (
     <Routes>
@@ -26,6 +26,7 @@ function App() {
       <Route path="/games" element={<BrowseGames />} />
 
       <Route path="/games/:id" element={<GameDetails />} />
+      <Route path="/thread/:id" element={<ThreadDetail />} />
 
       {/* Dashboard */}
       <Route

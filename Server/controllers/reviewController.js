@@ -1,14 +1,16 @@
+import mongoose from "mongoose";
 import Review from "../models/Review.js";
 import Game from "../models/Game.js";
-
 // ===============================
 // UPDATE GAME RATING CACHE
 // ===============================
 const updateGameRating = async (gameId) => {
+  const objectId = new mongoose.Types.ObjectId(gameId);
+
   const result = await Review.aggregate([
     {
       $match: {
-        game: gameId,
+        game: objectId,
       },
     },
     {
@@ -34,7 +36,9 @@ const updateGameRating = async (gameId) => {
   }
 
   await Game.findByIdAndUpdate(gameId, {
-    averageRating: Number(result[0].averageRating.toFixed(1)),
+    averageRating: Number(
+      result[0].averageRating.toFixed(1)
+    ),
     reviewCount: result[0].reviewCount,
   });
 };

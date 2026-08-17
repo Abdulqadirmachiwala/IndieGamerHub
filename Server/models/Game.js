@@ -14,9 +14,9 @@ const gameSchema = new mongoose.Schema(
     },
 
     genre: {
-      type: String,
-      required: true,
-    },
+  type: [String],
+  default: [],
+},
 
     platform: {
       type: String,
@@ -66,12 +66,37 @@ const gameSchema = new mongoose.Schema(
     },
 
     // External store links
-    storeLinks: {
-      steam: {
-        type: String,
-        default: "",
-      },
-    },
+   // External store links
+// External store links
+storeLinks: {
+  steam: {
+    type: String,
+    default: "",
+  },
+  steamAffiliate: {
+    type: String,
+    default: "",
+  },
+
+  epic: {
+    type: String,
+    default: "",
+  },
+  epicAffiliate: {
+    type: String,
+    default: "",
+  },
+
+  itch: {
+    type: String,
+    default: "",
+  },
+  itchAffiliate: {
+    type: String,
+    default: "",
+  },
+
+},
 
     // Featured Game
     isFeatured: {

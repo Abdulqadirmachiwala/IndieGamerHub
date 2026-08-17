@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
+
 import api from "../../services/api";
+import ReactPlayer from "react-player";
 import "./GameDetails.css";
 import GameForum from "../../components/GameForum/GameForum";
 function GameDetails() {
@@ -320,12 +322,13 @@ const currentUserId = user?._id || user?.id || user?.userId;
                       alt={`${game.title} screenshot ${
                         index + 1
                       }`}
-                      className={`game-thumbnail ${
-                        currentImage === index
-                          ? "active-thumbnail"
-                          : ""
-                      }`}
-                      onClick={() =>
+                    className={`game-thumbnail ${
+            currentImage === index
+              ? "active-thumbnail"
+              : ""
+          }`}
+          loading="lazy"
+          onClick={() =>
                         setCurrentImage(index)
                       }
                     />
@@ -472,34 +475,71 @@ const currentUserId = user?._id || user?.id || user?.userId;
           )}
 
           {/* BUTTONS */}
-          <div className="details-actions">
+         <div className="details-actions">
 
-            {game.storeLinks?.steam ? (
-              <a
-                href={game.storeLinks.steam}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="buy-btn"
-              >
-                🛒 Buy on Steam
-              </a>
-            ) : (
-              <button
-                className="buy-btn disabled-btn"
-                disabled
-              >
-                🛒 Store Link Coming Soon
-              </button>
-            )}
+  {/* STEAM */}
+  {game.storeLinks?.steamAffiliate ||
+  game.storeLinks?.steam ? (
+    <a
+      href={
+        game.storeLinks?.steamAffiliate ||
+        game.storeLinks?.steam
+      }
+      target="_blank"
+      rel="noopener noreferrer"
+      className="buy-btn"
+    >
+      🛒 Buy on Steam
+    </a>
+  ) : (
+    <button
+      className="buy-btn disabled-btn"
+      disabled
+    >
+      🛒 Steam Link Coming Soon
+    </button>
+  )}
 
-            <Link
-              to="/games"
-              className="back-btn"
-            >
-              ← Back to Games
-            </Link>
+  {/* EPIC GAMES */}
+  {game.storeLinks?.epicAffiliate ||
+  game.storeLinks?.epic ? (
+    <a
+      href={
+        game.storeLinks?.epicAffiliate ||
+        game.storeLinks?.epic
+      }
+      target="_blank"
+      rel="noopener noreferrer"
+      className="buy-btn"
+    >
+      🎮 Buy on Epic Games
+    </a>
+  ) : null}
 
-          </div>
+  {/* ITCH.IO */}
+  {game.storeLinks?.itchAffiliate ||
+  game.storeLinks?.itch ? (
+    <a
+      href={
+        game.storeLinks?.itchAffiliate ||
+        game.storeLinks?.itch
+      }
+      target="_blank"
+      rel="noopener noreferrer"
+      className="buy-btn"
+    >
+      🕹️ Get on Itch.io
+    </a>
+  ) : null}
+
+  <Link
+    to="/games"
+    className="back-btn"
+  >
+    ← Back to Games
+  </Link>
+
+</div>
 
         </div>
       </div>
@@ -533,9 +573,10 @@ const currentUserId = user?._id || user?.id || user?.userId;
                   key={index}
                   src={image}
                   alt={`${game.title} screenshot ${
-                    index + 1
-                  }`}
-                />
+            index + 1
+          }`}
+          loading="lazy"
+        />
               )
             )}
 
@@ -578,33 +619,24 @@ const currentUserId = user?._id || user?.id || user?.userId;
 
         </div>
 
-        {game.trailer ? (
-          <div className="trailer-container">
-
-            <iframe
-              src={game.trailer.replace(
-                "watch?v=",
-                "embed/"
-              )}
-              title={`${game.title} Trailer`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-
-          </div>
-        ) : (
-          <div className="media-placeholder">
-
-            <span>🎬</span>
-
-            <h3>Trailer Coming Soon</h3>
-
-            <p>
-              A game trailer will appear here.
-            </p>
-
-          </div>
-        )}
+      {game.trailer ? (
+  <div className="trailer-container">
+    <ReactPlayer
+  src={game.trailer}
+  controls
+  width="100%"
+  height="100%"
+/>
+  </div>
+) : (
+  <div className="media-placeholder">
+    <span>🎬</span>
+    <h3>Trailer Coming Soon</h3>
+    <p>
+      A game trailer will appear here.
+    </p>
+  </div>
+)}
 
       </div>
 {/* =================================

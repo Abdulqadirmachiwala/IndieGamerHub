@@ -21,16 +21,24 @@ export const getSteamGameDetails = async (appId) => {
     return {
       title: game.name || "",
       description: game.short_description || "",
+
+      // Genre as Array
       genre:
-        game.genres?.map((item) => item.description).join(", ") || "",
+  game.genres?.map((item) => item.description) || [],
+        
+
       releaseDate: game.release_date?.date || "",
+
       price:
         game.is_free || !game.price_overview
           ? 0
           : game.price_overview.final / 100,
+
       tags:
         game.categories?.map((item) => item.description) || [],
+
       coverImage: game.header_image || "",
+
       screenshots:
         game.screenshots?.map((item) => item.path_full) || [],
     };

@@ -183,13 +183,14 @@ function BrowseGames() {
           {filteredGames.map((game) => (
             <div className="game-card" key={game._id}>
               <img
-                src={
-                  game.coverImage ||
-                  "https://placehold.co/600x400?text=Game+Cover"
-                }
-                alt={game.title}
-                className="game-image"
-              />
+  src={
+    game.coverImage ||
+    "https://placehold.co/600x400?text=Game+Cover"
+  }
+  alt={game.title}
+  className="game-image"
+  loading="lazy"
+/>
 
               <div className="game-content">
                 <h2>{game.title}</h2>

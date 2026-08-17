@@ -139,12 +139,13 @@ function Admin() {
                 >
                   <div className="admin-game-info">
                     {game.coverImage ? (
-                      <img
-                        src={game.coverImage}
-                        alt={game.title}
-                        className="admin-game-image"
-                      />
-                    ) : (
+  <img
+    src={game.coverImage}
+    alt={game.title}
+    className="admin-game-image"
+    loading="lazy"
+  />
+) : (
                       <div className="admin-game-placeholder">
                         🎮
                       </div>

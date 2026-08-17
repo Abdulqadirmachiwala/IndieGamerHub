@@ -86,13 +86,13 @@ function Home() {
         className="home-game-card"
       >
         <img
-          src={
-            game.coverImage ||
-            "https://placehold.co/600x340?text=Game+Cover"
-          }
-          alt={game.title}
-        />
-
+  src={
+    game.coverImage ||
+    "https://placehold.co/600x340?text=Game+Cover"
+  }
+  alt={game.title}
+  loading="lazy"
+/>
         <div className="home-game-info">
           <h3>{game.title}</h3>
 

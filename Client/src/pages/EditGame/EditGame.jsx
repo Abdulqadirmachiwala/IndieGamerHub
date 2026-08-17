@@ -21,8 +21,16 @@ function EditGame() {
     price: "",
     releaseDate: "",
     tags: "",
-    steamLink: "",
-    coverImage: "",
+   steamLink: "",
+steamAffiliateLink: "",
+
+epicLink: "",
+epicAffiliateLink: "",
+
+itchLink: "",
+itchAffiliateLink: "",
+
+coverImage: "",
   });
 
   // ===============================
@@ -84,8 +92,16 @@ function EditGame() {
           ? String(game.releaseDate).substring(0, 10)
           : "",
         tags: tagsText,
-        steamLink: game.storeLinks?.steam || "",
-        coverImage: game.coverImage || "",
+       steamLink: game.storeLinks?.steam || "",
+steamAffiliateLink: game.storeLinks?.steamAffiliate || "",
+
+epicLink: game.storeLinks?.epic || "",
+epicAffiliateLink: game.storeLinks?.epicAffiliate || "",
+
+itchLink: game.storeLinks?.itch || "",
+itchAffiliateLink: game.storeLinks?.itchAffiliate || "",
+
+coverImage: game.coverImage || "",
       });
     } catch (error) {
       console.error("FETCH GAME ERROR:", error);
@@ -164,11 +180,7 @@ function EditGame() {
         title: formData.title.trim(),
 
         description: formData.description.trim(),
-
-        genre:
-          genreArray.length === 1
-            ? genreArray[0]
-            : genreArray,
+genre: genreArray,
 
         platform: formData.platform.trim(),
 
@@ -189,9 +201,16 @@ function EditGame() {
 
         tags: tagsArray,
 
-        storeLinks: {
-          steam: formData.steamLink.trim(),
-        },
+       storeLinks: {
+  steam: formData.steamLink.trim(),
+  steamAffiliate: formData.steamAffiliateLink.trim(),
+
+  epic: formData.epicLink.trim(),
+  epicAffiliate: formData.epicAffiliateLink.trim(),
+
+  itch: formData.itchLink.trim(),
+  itchAffiliate: formData.itchAffiliateLink.trim(),
+},
       };
 
       console.log("========== UPDATE GAME DATA ==========");
@@ -503,6 +522,104 @@ function EditGame() {
                 />
 
               </div>
+              {/* STEAM AFFILIATE LINK */}
+<div className="form-group">
+
+  <label htmlFor="steamAffiliateLink">
+    Steam Affiliate Link
+  </label>
+
+  <input
+    id="steamAffiliateLink"
+    type="url"
+    name="steamAffiliateLink"
+    placeholder="Your Steam affiliate/tracking URL"
+    value={formData.steamAffiliateLink}
+    onChange={handleChange}
+  />
+
+  <small>
+    Enter your approved Steam affiliate/tracking URL.
+  </small>
+
+</div>
+              {/* EPIC GAMES STORE LINK */}
+<div className="form-group">
+
+  <label htmlFor="epicLink">
+    Epic Games Store URL
+  </label>
+
+  <input
+    id="epicLink"
+    type="url"
+    name="epicLink"
+    placeholder="https://store.epicgames.com/..."
+    value={formData.epicLink}
+    onChange={handleChange}
+  />
+
+</div>
+{/* EPIC AFFILIATE LINK */}
+<div className="form-group">
+
+  <label htmlFor="epicAffiliateLink">
+    Epic Affiliate Link
+  </label>
+
+  <input
+    id="epicAffiliateLink"
+    type="url"
+    name="epicAffiliateLink"
+    placeholder="Your Epic affiliate/tracking URL"
+    value={formData.epicAffiliateLink}
+    onChange={handleChange}
+  />
+
+  <small>
+    Enter your approved Epic affiliate/tracking URL.
+  </small>
+
+</div>
+
+{/* ITCH.IO STORE LINK */}
+<div className="form-group">
+
+  <label htmlFor="itchLink">
+    Itch.io Store URL
+  </label>
+
+  <input
+    id="itchLink"
+    type="url"
+    name="itchLink"
+    placeholder="https://yourgame.itch.io/your-game"
+    value={formData.itchLink}
+    onChange={handleChange}
+  />
+
+</div>
+{/* ITCH.IO AFFILIATE LINK */}
+<div className="form-group">
+
+  <label htmlFor="itchAffiliateLink">
+    Itch.io Affiliate Link
+  </label>
+
+  <input
+    id="itchAffiliateLink"
+    type="url"
+    name="itchAffiliateLink"
+    placeholder="Your Itch.io affiliate/tracking URL"
+    value={formData.itchAffiliateLink}
+    onChange={handleChange}
+  />
+
+  <small>
+    Enter your approved Itch.io affiliate/tracking URL.
+  </small>
+
+</div>
 
             </div>
 

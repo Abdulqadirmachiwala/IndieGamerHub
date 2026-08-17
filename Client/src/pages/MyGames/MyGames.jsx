@@ -436,19 +436,20 @@ function GameDetails() {
                 {screenshots.map(
                   (image, index) => (
                     <img
-                      key={index}
-                      src={image}
-                      alt={`${game.title} screenshot ${
-                        index + 1
-                      }`}
-                      className={`game-thumbnail ${
-                        currentImage === index
-                          ? "active-thumbnail"
-                          : ""
-                      }`}
-                      onClick={() =>
-                        setCurrentImage(index)
-                      }
+  key={index}
+  src={image}
+  alt={`${game.title} screenshot ${
+    index + 1
+  }`}
+  className={`game-thumbnail ${
+    currentImage === index
+      ? "active-thumbnail"
+      : ""
+  }`}
+  loading="lazy"
+  onClick={() =>
+    setCurrentImage(index)
+  }
                     />
                   )
                 )}
@@ -697,13 +698,14 @@ function GameDetails() {
 
             {screenshots.map(
               (image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={`${game.title} screenshot ${
-                    index + 1
-                  }`}
-                />
+               <img
+  key={index}
+  src={image}
+  alt={`${game.title} screenshot ${
+    index + 1
+  }`}
+  loading="lazy"
+/>
               )
             )}
 

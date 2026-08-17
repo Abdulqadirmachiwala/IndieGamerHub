@@ -55,14 +55,28 @@ export const addGame = async (req, res) => {
 
       tags: steamData.tags || [],
 
-      storeLinks: {
-        steam:
-          storeLinks?.steam ||
-          (steamAppId
-            ? `https://store.steampowered.com/app/${steamAppId}/`
-            : ""),
-      },
+    storeLinks: {
+  steam:
+    storeLinks?.steam ||
+    (steamAppId
+      ? `https://store.steampowered.com/app/${steamAppId}/`
+      : ""),
 
+  steamAffiliate:
+    storeLinks?.steamAffiliate || "",
+
+  epic:
+    storeLinks?.epic || "",
+
+  epicAffiliate:
+    storeLinks?.epicAffiliate || "",
+
+  itch:
+    storeLinks?.itch || "",
+
+  itchAffiliate:
+    storeLinks?.itchAffiliate || "",
+},
       // New games are NOT featured by default
       isFeatured: false,
 
@@ -221,11 +235,18 @@ export const updateGame = async (req, res) => {
     // ===============================
     // UPDATE STORE LINKS
     // ===============================
-    if (req.body.storeLinks !== undefined) {
-      game.storeLinks = {
-        steam: req.body.storeLinks.steam || "",
-      };
-    }
+   if (req.body.storeLinks !== undefined) {
+  game.storeLinks = {
+  steam: req.body.storeLinks.steam || "",
+  steamAffiliate: req.body.storeLinks.steamAffiliate || "",
+
+  epic: req.body.storeLinks.epic || "",
+  epicAffiliate: req.body.storeLinks.epicAffiliate || "",
+
+  itch: req.body.storeLinks.itch || "",
+  itchAffiliate: req.body.storeLinks.itchAffiliate || "",
+};
+}
 
     const updatedGame = await game.save();
 

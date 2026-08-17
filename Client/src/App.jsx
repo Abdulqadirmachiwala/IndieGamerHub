@@ -14,6 +14,7 @@ import MyGames from "./pages/MyGames/MyGames";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute/AdminRoute";
 import ThreadDetail from "./pages/ThreadDetail/ThreadDetail";
+
 function App() {
   return (
     <Routes>
